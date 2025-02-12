@@ -187,7 +187,7 @@ export default function Navbar() {
                     <Link
                       key={page}
                       href={page === "Home" ? "/" : `/${page.toLowerCase().replace(" ", "-")}`}
-                      className="text-gray-500 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ease-in-out"
+                      className="text-gray-300 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ease-in-out"
                     >
                       {page}
                     </Link>
@@ -198,7 +198,7 @@ export default function Navbar() {
                     {/* Profile Dropdown */}
                     <DropdownMenu>
                       <DropdownMenuTrigger asChild>
-                        <Button variant="ghost" size="icon" className="text-gray-400 hover:text-gray-500">
+                        <Button variant="ghost" size="icon" className="text-gray-200 hover:text-white">
                           <User className="h-6 w-6" />
                         </Button>
                       </DropdownMenuTrigger>
@@ -215,10 +215,10 @@ export default function Navbar() {
                         ) : (
                           <>
                             <DropdownMenuItem>
-                              <Link href="/login">Login</Link>
+                              <Link href="/login" className="text-gray-200 hover:text-white">Login</Link>
                             </DropdownMenuItem>
                             <DropdownMenuItem>
-                              <Link href="/signup">Sign Up</Link>
+                              <Link href="/signup" className="text-gray-200 hover:text-white">Sign Up</Link>
                             </DropdownMenuItem>
                           </>
                         )}
@@ -228,7 +228,7 @@ export default function Navbar() {
                     {/* Cart Dropdown */}
                     <DropdownMenu>
                       <DropdownMenuTrigger asChild>
-                        <Button variant="ghost" size="icon" className="text-gray-400 hover:text-gray-500">
+                        <Button variant="ghost" size="icon" className="text-gray-200 hover:text-white">
                           <ShoppingCart className="h-6 w-6" />
                         </Button>
                       </DropdownMenuTrigger>
@@ -236,10 +236,14 @@ export default function Navbar() {
                         {cartItems.length > 0 ? (
                           <>
                             <DropdownMenuItem onClick={handleViewCart}>
+                              <Link href="/cart" className="text-gray-200 hover:text-white">
                               View Cart ({cartItems.length} items)
+                              </Link>
                             </DropdownMenuItem>
                             <DropdownMenuItem onClick={handleCheckout}>
+                            <Link href="/checkout" className="text-gray-200 hover:text-white">
                               Checkout
+                              </Link>
                             </DropdownMenuItem>
                           </>
                         ) : (
